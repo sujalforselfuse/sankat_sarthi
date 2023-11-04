@@ -13,8 +13,9 @@ const Accordion = () => {
 
             <div>
 
-                <div id="accordion-open" data-accordion="open">
-                    <h2 id={`accordion-open-heading-1`}>
+                <div className='group'>
+
+                    <h2>
                         <button
                             type="button"
                             className={`flex items-center justify-between w-full p-5 font-medium text-left text-[#007c7c] border border-b-0 border-green-200 rounded-t-xl hover:bg-green-100 ${isOpen ? 'bg-green-100' : ''
@@ -46,18 +47,18 @@ const Accordion = () => {
                     </h2>
 
                     <div
-                        className={`${isOpen ? 'block' : 'hidden'
-                            } p-5 border border-b-0 border-green-200`}
-                        aria-labelledby={`accordion-open-heading-1`}
+                        className={`p-5 border border-b-0 border-green-200 hidden group-hover:inline-block`}
                     >
                         <p className="mb-2 text-green-500">
                             Sankat Sarthi is a disaster management app designed to provide real-time alerts, guidance, and assistance during various emergencies. It aims to enhance community resilience by offering tools for risk assessment, emergency planning, and volunteer coordination.
                         </p>
+
                     </div>
+
                 </div>
 
-                <div id="accordion-open" data-accordion="open">
-                    <h2 id={`accordion-open-heading-2`}>
+                <div className='group'>
+                    <h2>
                         <button
                             type="button"
                             className={`flex items-center justify-between w-full p-5 font-medium text-left text-[#007c7c] border border-b-0 border-green-200 rounded-t-xl hover:bg-green-100 ${isOpen ? 'bg-green-100' : ''
