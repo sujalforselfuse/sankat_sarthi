@@ -30,7 +30,7 @@ function App() {
           <Route path="/" element={<Layout />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
-          <Route path="/marker" element={<Marker />}></Route>
+          <Route path="/shelter" element={<Marker />}></Route>
         </Routes>
 
         <ScrollToTop />

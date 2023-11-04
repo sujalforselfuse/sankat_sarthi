@@ -9,10 +9,10 @@ import logo from "../../Images/sarthi_logo.png";
 const Navbar = () => {
   const location = useLocation();
 
-  const {fetchData,name,login}=useContext(noteContext);
+  const { fetchData, name, login } = useContext(noteContext);
 
   const [sidebar, setsidebar] = useState(false);
-
+  
   const sidebarRef = useRef(null);
 
   //   Funtion to Open the sidebar
@@ -47,8 +47,43 @@ const Navbar = () => {
   }, [sidebar]);
 
   useEffect(() => {
-    
     fetchData();
+
+    if ("geolocation" in navigator) {
+      // Use the Geolocation API to get the user's coordinates
+      navigator.geolocation.getCurrentPosition((position) => {
+        const { latitude, longitude } = position.coords;
+        console.log(latitude, longitude);
+        // Call a function to get the city from coordinates
+        /* getCurrentCityFromCoordinates(latitude, longitude); */
+
+        const accessToken =
+          "pk.eyJ1Ijoic3VqYWxmb3JzZWxmdXNlIiwiYSI6ImNsb2s3NjdqaDF2YWgybHJ3Yzg4ZG1mejAifQ.TIc4BIVkUfLPqLs1m_AxHw";
+
+        const apiUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=${accessToken}`;
+
+        fetch(apiUrl)
+          .then((response) => response.json())
+          .then((data) => {
+            const cityFeature = data.features.find((feature) =>
+              feature.place_type.includes("place")
+            );
+            if (cityFeature) {
+              const city = cityFeature.text;
+              localStorage.setItem('city',city.toLowerCase());
+              
+            } else {
+              console.log("City not found");
+            }
+            
+          })
+          .catch((error) => {
+            console.error("Error converting coordinates to city", error);
+          });
+      });
+    } else {
+      console.error("Geolocation is not supported by your browser.");
+    }
   }, []);
 
   return (
@@ -154,13 +189,9 @@ const Navbar = () => {
 
     // </div>
     <div>
-      
       <nav className="">
-
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-4 md:p-4">
-
           <a href="/" className="flex items-center">
-
             {/* Logo */}
 
             <img src={logo} className="h-16 md:h-20" alt="Logo" />
@@ -168,7 +199,6 @@ const Navbar = () => {
             {/* Name of the website */}
 
             <div className="flex sm:flex-row flex-col gap-x-2 uppercase text-green-600">
-
               <span className="text-2xl md:text-3xl font-black whitespace-nowrap">
                 Sankat
               </span>
@@ -176,9 +206,8 @@ const Navbar = () => {
               <span className="text-2xl md:text-3xl font-black whitespace-nowrap">
                 Sarthi
               </span>
-
+              
             </div>
-
           </a>
 
           <div className="flex items-center">
@@ -196,14 +225,12 @@ const Navbar = () => {
 
               <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-green-400 from-green-300"></span>
 
-              <span className="relative capitalize">{login?'Hi '+ name.split(" ")[0]:"Login"}</span>
-
+              <span className="relative capitalize">
+                {login ? "Hi " + name.split(" ")[0] : "Login"}
+              </span>
             </a>
-
           </div>
-
         </div>
-        
       </nav>
 
       <nav className="">
@@ -261,15 +288,10 @@ const Navbar = () => {
                   WHY SARTHI?
                 </a>
               </li>
-
             </ul>
-
           </div>
-
         </div>
-
       </nav>
-
     </div>
   );
 };

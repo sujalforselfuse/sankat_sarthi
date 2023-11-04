@@ -18,7 +18,7 @@ const City_wise_schema = new Schema({
     },
     Alert_type: {
         type: String,
-        default: "normal"
+        default: "Not Known"
     }
 });
 const User=mongoose.model('city_wise_rate',City_wise_schema);
