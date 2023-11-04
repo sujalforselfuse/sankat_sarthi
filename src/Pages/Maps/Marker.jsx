@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
 import './marker.css';
+import { AiOutlineSend } from 'react-icons/ai'
 const MultipleMarkersMap = () => {
   const fetch_shelter = async () => {
     try {
@@ -70,7 +71,75 @@ const MultipleMarkersMap = () => {
   useEffect(() => {
     fetch_shelter();
   }, []);
-  return <div id="map" style={{ width: "100vw", height: "400px" }} />;
+
+  return (
+    <>
+      <div id="map" style={{ width: "100vw", height: "400px" }} />
+
+      <div class="container mx-auto py-4 px-4 md:px-28 xl:px-40 flex flex-col gap-y-6">
+
+        {/* Shelter */}
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8">
+
+          <div class="bg-green-100 p-4 rounded-md shadow flex items-center justify-center">
+            <p className="font-semibold relative text-xl text-green-900">Shelter 1</p>
+          </div>
+
+          <div class="bg-green-100 p-4 rounded-md shadow flex items-center justify-center">
+            <p className="font-semibold relative text-xl text-green-900">7 km</p>
+          </div>
+
+          <div class="rounded-full flex items-center justify-center">
+            <a
+              href="#_"
+              class="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden font-medium text-white bg-[#007c7c] transition duration-300 ease-out border-2 rounded-full shadow-md group"
+            >
+              <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[#007c7c] group-hover:translate-x-0 ease">
+                <AiOutlineSend className="text-2xl" />
+              </span>
+              <span class="absolute flex items-center justify-center w-full h-full text-white font-medium text-xl transition-all duration-300 transform group-hover:translate-x-full ease">
+                Navigate
+              </span>
+              <span class="relative invisible">Navigate</span>
+            </a>
+          </div>
+
+        </div>
+
+        {/* Shelter */}
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-8">
+
+          <div class="bg-green-100 p-4 rounded-md shadow flex items-center justify-center">
+            <p className="font-semibold relative text-xl text-green-900">Shelter 1</p>
+          </div>
+
+          <div class="bg-green-100 p-4 rounded-md shadow flex items-center justify-center">
+            <p className="font-semibold relative text-xl text-green-900">7 km</p>
+          </div>
+
+          <div class="rounded-full flex items-center justify-center">
+            <a
+              href="#_"
+              class="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden font-medium text-white bg-[#007c7c] transition duration-300 ease-out border-2 rounded-full shadow-md group"
+            >
+              <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[#007c7c] group-hover:translate-x-0 ease">
+                <AiOutlineSend className="text-2xl" />
+              </span>
+              <span class="absolute flex items-center justify-center w-full h-full text-white font-medium text-xl transition-all duration-300 transform group-hover:translate-x-full ease">
+                Navigate
+              </span>
+              <span class="relative invisible">Navigate</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </>
+  );
 };
 
 export default MultipleMarkersMap;
