@@ -55,7 +55,7 @@ const AccordionData = [
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [city, setCity] = useState("Loading");
-
+  const [chances, setChances] = useState("");
   const toggleAccordion = () => {
     setIsOpen(!isOpen);
   };
@@ -70,35 +70,71 @@ const Home = () => {
     return "#ef4444";
   };
 
-  /* const fetch_chances = async () => {
+  const fetch_chances = async () => {
     try {
       if (!localStorage.getItem("token")) {
         return;
       }
 
-      const response = await fetch(`http://localhost:8000/api/auth/userinfo`, {
-        method: "GET",
+      const response = await fetch(
+        `http://localhost:8000/api/chances//get_chances/${localStorage.getItem(
+          "city"
+        )}`,
+        {
+          method: "GET",
 
-        headers: {
-          "Content-Type": "application/json",
-          
-        },
-      });
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const json = await response.json();
       if (json.success) {
-        setLogin(true);
-        setName(json.user.name);
+        console.log("fetching", json);
+        setChances(json.city);
+        if(json.city.disaster_rate>90 && json.city.disaster_rate<=100){
+          setCurrentPH(10);
+        }
+        else if(json.city.disaster_rate>80 && json.city.disaster_rate<=90){
+          setCurrentPH(9);
+        }
+        else if(json.city.disaster_rate>70 && json.city.disaster_rate<=80){
+          setCurrentPH(8);
+        }
+        else if(json.city.disaster_rate>60 && json.city.disaster_rate<=70){
+          setCurrentPH(7);
+        }
+        else if(json.city.disaster_rate>50 && json.city.disaster_rate<=60){
+          setCurrentPH(6);
+        }
+        else if(json.city.disaster_rate>40 && json.city.disaster_rate<=50){
+          setCurrentPH(5);
+        }
+        else if(json.city.disaster_rate>30 && json.city.disaster_rate<=40){
+          setCurrentPH(4);
+        }
+        else if(json.city.disaster_rate>20 && json.city.disaster_rate<=30){
+          setCurrentPH(3);
+        }
+        else if(json.city.disaster_rate>10 && json.city.disaster_rate<=20){
+          setCurrentPH(2);
+        }
+        else if(json.city.disaster_rate>0 && json.city.disaster_rate<=10){
+          setCurrentPH(1);
+        }
+        console.log("chances", chances);
       }
-      
     } catch (error) {
       console.error("Error:", error);
     }
-  }; */
+  };
+
+ 
 
   useEffect(() => {
+    fetch_chances();
     setCity(localStorage.getItem("city"));
-    /* fetch_chances(); */
-  }, [city]);
+  }, []);
 
   return (
     <>
@@ -156,12 +192,13 @@ const Home = () => {
           {/* Percentage Disaster */}
           <div className="flex flex-col justify-between items-center">
             <p className="font-normal text-xl text-gray-700">
-              Disaster Chances - <span className="text-green-900">10%</span>
+              Disaster Chances -{" "}
+              <span className="text-green-900">{chances.disaster_rate}</span>
             </p>
 
             <p className="font-normal text-xl text-gray-700">
               Disaster Type -{" "}
-              <span className="text-green-900 capitalize">tsunami</span>
+              <span className="text-green-900 capitalize">{chances.Alert_type}</span>
             </p>
           </div>
         </div>
