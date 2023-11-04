@@ -22,7 +22,7 @@ const WeatherData = () => {
             }
 
             const response = await fetch(
-                `http://localhost:8000/api/chances//get_chances/${localStorage.getItem(
+                `http://localhost:8000/api/chances/get_chances/${localStorage.getItem(
                     "city"
                 )}`,
                 {

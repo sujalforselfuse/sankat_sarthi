@@ -1,8 +1,7 @@
 .marker {
-    width: 30px;
-    height: 30px;
-    background-color: #0074e4;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  
+  width: 30px;
+  height: 30px;
+  background-image: url('hut.png'); /* Replace with the URL or path to your image */
+  background-size: cover;
+  cursor: pointer;
+}
