@@ -1,8 +1,11 @@
 import React, { useRef, useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { RegionDropdown } from 'react-country-region-selector';
 const Signup = () => {
 
     const form = useRef();
+    const [loading,setLoading]=useState(false);
+
     const [name, setname] = useState("")
     const [number, setnumber] = useState("")
     const [email, setemail] = useState("")
@@ -10,8 +13,10 @@ const Signup = () => {
     const [city, setcity] = useState("")
     const [state, setstate] = useState("")
 
+    const history=useNavigate();
+    
     const handleChange = (e) => {
-        if (e.target.name == 'fname') {
+        if (e.target.name == 'name') {
             setname(e.target.value)
         }
         else if (e.target.name == 'number') {
@@ -30,10 +35,40 @@ const Signup = () => {
             setcity(e.target.value)
         }
     }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+    
+        const response = await fetch(`http://localhost:8000/api/auth/usersignup`, {
+          method: "POST",
+    
+          headers: {
+            "Content-Type": "application/json",
+    
+          },
+          body: JSON.stringify({ name, email, number,city,state, password }),
+    
+    
+        });
+        const json = await response.json();
+        if (json.success) {
+          setLoading(false);
+          localStorage.setItem('token', json.authtoken);
+          history('/');
+    
+        }
+        else {
+          setLoading(false);
+          alert("fail");
+          /* props.showAlert("Invalid Credentials", "danger"); */
+        }
+      }
+
     return (
 
         <div className='w-full h-[100vh] flex items-center justify-center'>
-            <form ref={form} className='2xl:w-[1000px] xl:w-[500px] lg:w-[450px] w-full bg-white'>
+            <form ref={form} onSubmit={handleSubmit} className='2xl:w-[1000px] xl:w-[500px] lg:w-[450px] w-full bg-white'>
 
                 {/* Form Container */}
 
