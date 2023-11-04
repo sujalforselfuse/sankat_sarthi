@@ -155,18 +155,28 @@ const Navbar = () => {
     // </div>
     <div>
       <nav className="">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-4 md:p-4">
+
           <a href="/" className="flex items-center">
-            <img src={logo} className="h-20" alt="Logo" />
+
+            {/* Logo */}
+
+            <img src={logo} className="h-16 md:h-20" alt="Logo" />
+
+            {/* Name of the website */}
 
             <div className="flex sm:flex-row flex-col gap-x-2 uppercase text-orange-600">
-              <span className="text-3xl font-black whitespace-nowrap dark:text-white">
+
+              <span className="text-2xl md:text-3xl font-black whitespace-nowrap dark:text-white">
                 Sankat
               </span>
-              <span className="text-3xl font-black whitespace-nowrap dark:text-white">
+
+              <span className="text-2xl md:text-3xl font-black whitespace-nowrap dark:text-white">
                 Sarthi
               </span>
+
             </div>
+
           </a>
 
           <div className="flex items-center">
@@ -185,15 +195,19 @@ const Navbar = () => {
               <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-orange-400 from-orange-300"></span>
 
               <span className="relative capitalize">{login?'Hi '+ name.split(" ")[0]:"Login"}</span>
+
             </a>
+
           </div>
+
         </div>
+        
       </nav>
 
       <nav className="">
-        <div className="max-w-screen-xl px-4 py-3 mx-auto">
-          <div className="flex items-center">
-            <ul className="flex flex-row font-medium mt-0 mr-6 space-x-8 text-sm">
+        <div className="max-w-screen-xl md:px-4 py-3 mx-auto">
+          <div className="flex items-center justify-center">
+            <ul className="flex flex-row font-medium gap-x-2 md:gap-x-0 mt-0 md:mr-6 md:space-x-8 text-sm">
               <li>
                 <a
                   href="/"
