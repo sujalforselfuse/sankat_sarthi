@@ -76,11 +76,11 @@ const Navbar = () => {
 
     //                 <a href='/' className="mr-5 text-base 2xl:text-[1.5rem] text-[#AA67FE] cursor-pointer font-medium tracking-widest" style={{ filter: 'drop-shadow(0px 4px 3px #AA67FE)' }}>Home</a>
 
-    //                 <a href='#service' className={`nav-link ${location.pathname === '/' ? 'text-orange-500' : ''}`} style={{ filter: 'drop-shadow(0px 2px 2px #FFFFFF)' }}>HOW IT WORKS</a>
+    //                 <a href='#service' className={`nav-link ${location.pathname === '/' ? 'text-green-500' : ''}`} style={{ filter: 'drop-shadow(0px 2px 2px #FFFFFF)' }}>HOW IT WORKS</a>
 
-    //                 <a href='#testimonal' className={`nav-link ${location.pathname === '/' ? 'text-orange-500' : ''}`} style={{ filter: 'drop-shadow(0px 2px 2px #FFFFFF)' }}>SERVICES</a>
+    //                 <a href='#testimonal' className={`nav-link ${location.pathname === '/' ? 'text-green-500' : ''}`} style={{ filter: 'drop-shadow(0px 2px 2px #FFFFFF)' }}>SERVICES</a>
 
-    //                 <a href='#about' className={`nav-link ${location.pathname === '/' ? 'text-orange-500' : ''}`} style={{ filter: 'drop-shadow(0px 2px 2px #FFFFFF)' }}>WHY SARTHI?</a>
+    //                 <a href='#about' className={`nav-link ${location.pathname === '/' ? 'text-green-500' : ''}`} style={{ filter: 'drop-shadow(0px 2px 2px #FFFFFF)' }}>WHY SARTHI?</a>
 
     //             </nav>
 
@@ -88,13 +88,13 @@ const Navbar = () => {
 
     //             <a href={'#contact'} className="lg:px-4 px-3 py-2 2xl:py-2 relative rounded group 2xl:text-2xl text-lg font-medium text-black flex items-center justify-center">
 
-    //                 <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-orange-300 to-orange-400"></span>
+    //                 <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-green-300 to-green-400"></span>
 
-    //                 <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-orange-400 to-orange-300"></span>
+    //                 <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-green-400 to-green-300"></span>
 
-    //                 <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-orange-700 to-orange-300"></span>
+    //                 <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-green-700 to-green-300"></span>
 
-    //                 <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-orange-700 from-orange-300"></span>
+    //                 <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-green-700 from-green-300"></span>
 
     //                 <span className="relative">Contact us</span>
 
@@ -154,7 +154,9 @@ const Navbar = () => {
 
     // </div>
     <div>
+      
       <nav className="">
+
         <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-4 md:p-4">
 
           <a href="/" className="flex items-center">
@@ -165,13 +167,13 @@ const Navbar = () => {
 
             {/* Name of the website */}
 
-            <div className="flex sm:flex-row flex-col gap-x-2 uppercase text-orange-600">
+            <div className="flex sm:flex-row flex-col gap-x-2 uppercase text-green-600">
 
-              <span className="text-2xl md:text-3xl font-black whitespace-nowrap dark:text-white">
+              <span className="text-2xl md:text-3xl font-black whitespace-nowrap">
                 Sankat
               </span>
 
-              <span className="text-2xl md:text-3xl font-black whitespace-nowrap dark:text-white">
+              <span className="text-2xl md:text-3xl font-black whitespace-nowrap">
                 Sarthi
               </span>
 
@@ -186,13 +188,13 @@ const Navbar = () => {
               href={"/login"}
               className="lg:px-6 px-3 py-1 2xl:py-2 relative rounded group 2xl:text-2xl text-lg font-medium text-black flex items-center justify-center"
             >
-              <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-orange-300 to-orange-400"></span>
+              <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-green-300 to-green-400"></span>
 
-              <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-orange-400 to-orange-300"></span>
+              <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-green-400 to-green-300"></span>
 
-              <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-orange-400 to-orange-300"></span>
+              <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-green-400 to-green-300"></span>
 
-              <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-orange-400 from-orange-300"></span>
+              <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-green-400 from-green-300"></span>
 
               <span className="relative capitalize">{login?'Hi '+ name.split(" ")[0]:"Login"}</span>
 
@@ -213,7 +215,7 @@ const Navbar = () => {
                   href="/"
                   className={`nav-link ${
                     location.pathname === "/"
-                      ? "text-orange-500 before:w-full"
+                      ? "text-green-500 before:w-full"
                       : "text-gray-900"
                   }`}
                 >
@@ -223,10 +225,10 @@ const Navbar = () => {
 
               <li>
                 <a
-                  href="#"
+                  href=" "
                   className={`nav-link ${
                     location.pathname === "#works"
-                      ? "text-orange-500 before:w-full"
+                      ? "text-green-500 before:w-full"
                       : "text-gray-900"
                   }`}
                 >
@@ -236,10 +238,10 @@ const Navbar = () => {
 
               <li>
                 <a
-                  href="#"
+                  href=" "
                   className={`nav-link ${
                     location.pathname === "#services"
-                      ? "text-orange-500 before:w-full"
+                      ? "text-green-500 before:w-full"
                       : "text-gray-900"
                   }`}
                 >
@@ -249,20 +251,25 @@ const Navbar = () => {
 
               <li>
                 <a
-                  href="#"
+                  href=" "
                   className={`nav-link ${
                     location.pathname === "#reasons"
-                      ? "text-orange-500 before:w-full"
+                      ? "text-green-500 before:w-full"
                       : "text-gray-900"
                   }`}
                 >
                   WHY SARTHI?
                 </a>
               </li>
+
             </ul>
+
           </div>
+
         </div>
+
       </nav>
+
     </div>
   );
 };
