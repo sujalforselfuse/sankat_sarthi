@@ -42,8 +42,10 @@ const Signup = () => {
                     {/* Heading */}
 
                     <h1 className="2xl:text-7xl sm:text-4xl text-2xl text-green-900 text-center font-bold tracking-wide">Register
-                        <span className='text-black'> Yourself</span>
+                        <span className='text-black'> Yourself For Your <span className='uppercase text-green-900'>sarthi</span></span>
                     </h1>
+
+                    <p class="text-gray-600 text-center">Sign up to your account.</p>
 
                     {/* Input Fields */}
 
@@ -122,7 +124,7 @@ const Signup = () => {
 
                     {/* Submit Button */}
 
-                    <div className='2xl:h-[60px] h-[42px] 2xl:text-[1.5rem] flex sm:justify-end justify-center'>
+                    <div className='2xl:h-[60px] h-[42px] 2xl:text-[1.5rem] flex sm:justify-between justify-center items-center'>
 
                         <button type='submit' value='Send' className="relative inline-flex items-center justify-center border-2 border-black px-6 py-3 overflow-hidden font-bold text-black rounded-md shadow-2xl group">
 
@@ -143,6 +145,9 @@ const Signup = () => {
                             <span className="relative">Register &rarr;</span>
 
                         </button>
+
+                        <a href='/login' className="2xl:text-xl sm:text-lg text-lg text-green-900 text-center font-medium tracking-wide underline">SignIn
+                        </a>
 
                     </div>
 

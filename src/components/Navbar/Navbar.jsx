@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
-// import logo from '../Images/zorway_logo.png'
+import logo from '../../Images/sarthi_logo.png'
 // import openSidebar from '../Images/quill_hamburger-sidebar open.png'
 // import closeSidebar from '../Images/quill_hamburger-sidebar close.png'
 
@@ -81,13 +81,13 @@ const Navbar = () => {
 
         //             <a href={'#contact'} className="lg:px-4 px-3 py-2 2xl:py-2 relative rounded group 2xl:text-2xl text-lg font-medium text-black flex items-center justify-center">
 
-        //                 <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-green-300 to-green-400"></span>
+        //                 <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-orange-300 to-orange-400"></span>
 
-        //                 <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-green-400 to-green-300"></span>
+        //                 <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-orange-400 to-orange-300"></span>
 
-        //                 <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-green-700 to-green-300"></span>
+        //                 <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-orange-700 to-orange-300"></span>
 
-        //                 <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-green-700 from-green-300"></span>
+        //                 <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-orange-700 from-orange-300"></span>
 
         //                 <span className="relative">Contact us</span>
 
@@ -153,7 +153,7 @@ const Navbar = () => {
                 <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
 
                     <a href="/" className="flex items-center">
-                        <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="Flowbite Logo" />
+                        <img src={logo} className="h-20" alt="Logo" />
 
                         <div className='flex sm:flex-row flex-col gap-x-2 uppercase text-orange-600'>
                             <span className="text-3xl font-black whitespace-nowrap dark:text-white">Sankat</span>
@@ -163,17 +163,17 @@ const Navbar = () => {
 
                     <div className="flex items-center">
 
-                        {/* contact button */}
+                        {/* Login button */}
 
-                        <a href={'#contact'} className="lg:px-6 px-3 py-1 2xl:py-2 relative rounded group 2xl:text-2xl text-lg font-medium text-black flex items-center justify-center">
+                        <a href={'/login'} className="lg:px-6 px-3 py-1 2xl:py-2 relative rounded group 2xl:text-2xl text-lg font-medium text-black flex items-center justify-center">
 
-                            <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-green-300 to-green-400"></span>
+                            <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-orange-300 to-orange-400"></span>
 
-                            <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-green-400 to-green-300"></span>
+                            <span className="h-full w-full inset-0 absolute mt-0.5 ml-0.5 bg-gradient-to-br filter group-active:opacity-0 rounded opacity-50 from-orange-400 to-orange-300"></span>
 
-                            <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-green-400 to-green-300"></span>
+                            <span className="absolute inset-0 w-full h-full transition-all duration-200 ease-out rounded shadow-xl bg-gradient-to-br filter group-active:opacity-0 group-hover:blur-sm from-orange-400 to-orange-300"></span>
 
-                            <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-green-400 from-green-300"></span>
+                            <span className="absolute inset-0 w-full h-full transition duration-200 ease-out rounded bg-gradient-to-br to-orange-400 from-orange-300"></span>
 
                             <span className="relative">Login</span>
 

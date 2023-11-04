@@ -30,6 +30,8 @@ const Login = () => {
                         <span className='text-black'> Yourself</span>
                     </h1>
 
+                    <p class="text-gray-600 text-center">Sign up to your account.</p>
+
                     {/* Input Fields */}
 
                     {/* Email */}
@@ -54,7 +56,7 @@ const Login = () => {
 
                     {/* Submit Button */}
 
-                    <div className='2xl:h-[60px] h-[42px] 2xl:text-[1.5rem] flex sm:justify-end justify-center'>
+                    <div className='2xl:h-[60px] h-[42px] 2xl:text-[1.5rem] flex sm:justify-between items-center justify-center'>
 
                         <button type='submit' value='Send' className="relative inline-flex items-center justify-center border-2 border-black px-6 lg:px-8 py-3 overflow-hidden font-bold text-black rounded-md shadow-2xl group">
 
@@ -76,11 +78,15 @@ const Login = () => {
 
                         </button>
 
+                        <a href='/signup' className="2xl:text-xl sm:text-lg text-lg text-green-900 text-center font-medium tracking-wide underline">Signup
+                        </a>
+
                     </div>
 
                 </div>
 
             </form>
+            
         </div>
     )
 }
