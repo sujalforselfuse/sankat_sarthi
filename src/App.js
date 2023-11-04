@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './Pages/login/Login';
 import Signup from './Pages/signup/Signup';
 import NoteState from './context/NoteState';
-import Marker from './components/Maps/Marker';
+import Marker from './Pages/Maps/Marker';
 function App() {
   return (
     <NoteState>
