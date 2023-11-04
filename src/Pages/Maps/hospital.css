@@ -1,0 +1,8 @@
+.marker2 {
+    width: 30px;
+    height: 30px;
+    background-image: url('hospital.png'); /* Replace with the URL or path to your image */
+    background-size: cover;
+    cursor: pointer;
+  }
+  

@@ -8,6 +8,8 @@ import Login from './Pages/login/Login';
 import Signup from './Pages/signup/Signup';
 import NoteState from './context/NoteState';
 import Marker from './Pages/Maps/Marker';
+import Hospitals_mark from './Pages/Maps/Hospitals';
+import Food_mark from './Pages/Maps/Food';
 function App() {
   return (
     <NoteState>
@@ -31,6 +33,8 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/shelter" element={<Marker />}></Route>
+          <Route path="/hospital" element={<Hospitals_mark />}></Route>
+          <Route path="/food" element={<Food_mark />}></Route>
         </Routes>
 
         <ScrollToTop />

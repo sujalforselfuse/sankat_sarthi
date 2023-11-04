@@ -1,89 +1,123 @@
-import React from 'react'
+import React,{useEffect,useState} from "react";
 import ambulance from "../../Images/ambulance.png";
 import ndrf from "../../Images/ndrf.png";
 import fire from "../../Images/fire.png";
 const QuickCall = () => {
-    return (
-        <>
-            {/* Important Contact Numbers */}
+  const [services, setServices] = useState("");
+  const fetch_services = async () => {
+    try {
+      if (!localStorage.getItem("token")) {
+        return;
+      }
 
-            <div className="flex flex-wrap w-full justify-between gap-y-6">
-                {/* Ambulance Number */}
+      const response = await fetch(
+        `http://localhost:8000/api/details/get_emergency/${localStorage.getItem(
+          "city"
+        )}`,
+        {
+          method: "GET",
 
-                <a
-                    href="tel:102"
-                    className="cursor-pointer flex justify-around gap-x-2 max-w-sm p-6 bg-green-100 border-2 border-green-200 rounded-lg shadow hover:bg-gray-100"
-                >
-                    <div>
-                        <img src={ambulance} alt="" className="h-24" />
-                    </div>
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-                    <div>
-                        <h5 className="mb-2 text-3xl font-bold tracking-tight text-[#007c7c]">
-                            Ambulance
-                        </h5>
+      const json = await response.json();
+      if (json.success) {
+        console.log("services", json);
+        setServices(json.city);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
 
-                        <a
-                            href="tel:102"
-                            className="font-normal text-xl md:text-2xl text-gray-500"
-                        >
-                            102
-                        </a>
-                    </div>
-                </a>
+  useEffect(() => {
+    fetch_services();
+  }, []);
 
-                {/* Control Room Number */}
+  return (
+    <>
+      {/* Important Contact Numbers */}
 
-                <a
-                    href="tel:101"
-                    className="cursor-pointer flex justify-around gap-x-2 max-w-sm p-6 bg-green-100 border-2 border-green-200 rounded-lg shadow hover:bg-gray-100"
-                >
-                    <div>
-                        <img src={fire} alt="" className="h-24" />
-                    </div>
+      <div className="flex flex-wrap w-full justify-between gap-y-6">
+        {/* Ambulance Number */}
 
-                    {/* Contact Number and Name */}
+        <a
+          href="tel:102"
+          className="cursor-pointer flex justify-around gap-x-2 max-w-sm p-6 bg-green-100 border-2 border-green-200 rounded-lg shadow hover:bg-gray-100"
+        >
+          <div>
+            <img src={ambulance} alt="" className="h-24" />
+          </div>
 
-                    <div>
-                        <h5 className="mb-2 text-3xl font-bold tracking-tight text-[#007c7c]">
-                            Control Room
-                        </h5>
+          <div>
+            <h5 className="mb-2 text-3xl font-bold tracking-tight text-[#007c7c]">
+              Ambulance
+            </h5>
 
-                        <a
-                            href="tel:101"
-                            className="font-normal text-xl md:text-2xl text-gray-500"
-                        >
-                            101
-                        </a>
-                    </div>
-                </a>
+            <a
+              href="tel:102"
+              className="font-normal text-xl md:text-2xl text-gray-500"
+            >
+              {services.ambulance}
+            </a>
+          </div>
+        </a>
 
-                {/* NDRF Number */}
+        {/* Control Room Number */}
 
-                <a
-                    href="tel:011-23438136"
-                    className="cursor-pointer flex justify-around gap-x-2 w-full max-w-sm p-6 bg-green-100 border-2 border-green-200 rounded-lg shadow hover:bg-gray-100"
-                >
-                    <div>
-                        <img src={ndrf} alt="" className="h-24" />
-                    </div>
+        <a
+          href="tel:101"
+          className="cursor-pointer flex justify-around gap-x-2 max-w-sm p-6 bg-green-100 border-2 border-green-200 rounded-lg shadow hover:bg-gray-100"
+        >
+          <div>
+            <img src={fire} alt="" className="h-24" />
+          </div>
 
-                    <div>
-                        <h5 className="mb-2 text-3xl font-bold tracking-tight text-[#007c7c]">
-                            NDRF
-                        </h5>
+          {/* Contact Number and Name */}
 
-                        <a
-                            href="tel:011-23438136"
-                            className="font-normal text-xl md:text-2xl text-gray-500"
-                        >
-                            011-23438136
-                        </a>
-                    </div>
-                </a>
-            </div>
-        </>
-    )
-}
+          <div>
+            <h5 className="mb-2 text-3xl font-bold tracking-tight text-[#007c7c]">
+              Control Room
+            </h5>
 
-export default QuickCall
+            <a
+              href="tel:101"
+              className="font-normal text-xl md:text-2xl text-gray-500"
+            >
+             {services.control_room}
+            </a>
+          </div>
+        </a>
+
+        {/* NDRF Number */}
+
+        <a
+          href="tel:011-23438136"
+          className="cursor-pointer flex justify-around gap-x-2 w-full max-w-sm p-6 bg-green-100 border-2 border-green-200 rounded-lg shadow hover:bg-gray-100"
+        >
+          <div>
+            <img src={ndrf} alt="" className="h-24" />
+          </div>
+
+          <div>
+            <h5 className="mb-2 text-3xl font-bold tracking-tight text-[#007c7c]">
+              NDRF
+            </h5>
+
+            <a
+              href="tel:011-23438136"
+              className="font-normal text-xl md:text-2xl text-gray-500"
+            >
+              {services.ndrf}
+            </a>
+          </div>
+        </a>
+      </div>
+    </>
+  );
+};
+
+export default QuickCall;

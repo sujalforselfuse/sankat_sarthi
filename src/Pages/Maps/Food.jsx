@@ -2,10 +2,10 @@
 import React, { useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import MapboxDirections from "@mapbox/mapbox-gl-directions/dist/mapbox-gl-directions";
-import "./marker.css";
+import "./food.css";
 import { AiOutlineSend } from "react-icons/ai";
 
-const MultipleMarkersMap = () => {
+const Food_mark = () => {
   const [data, setData] = useState(null);
   const [distance, setDistance] = useState([]);
   const [dis, setDis] = useState([]);
@@ -63,7 +63,7 @@ const MultipleMarkersMap = () => {
       }
 
       const response = await fetch(
-        `http://localhost:8000/api/markers/get_shelter/${localStorage.getItem(
+        `http://localhost:8000/api/markers/get_food/${localStorage.getItem(
           "city"
         )}`,
         {
@@ -113,7 +113,7 @@ const MultipleMarkersMap = () => {
 
         markerCoordinates.forEach((marker, index) => {
           const markerElement = document.createElement("div");
-          markerElement.className = "marker";
+          markerElement.className = "marker3";
 
           // Attach click event to each marker
           markerElement.addEventListener("click", () => {
@@ -169,7 +169,7 @@ const MultipleMarkersMap = () => {
                 >
                   <div class="bg-green-100 p-4 rounded-md shadow flex items-center justify-center">
                     <p className="font-semibold relative text-xl text-green-900">
-                      Shelter {index}
+                      Food Distribution {index}
                     </p>
                   </div>
 
@@ -233,4 +233,4 @@ const MultipleMarkersMap = () => {
   );
 };
 
-export default MultipleMarkersMap;
+export default Food_mark;
