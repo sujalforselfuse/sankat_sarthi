@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import WeatherData from "../WeatherData/WeatherData";
 import QuickCall from "../QuickCall/QuickCall";
 import NearbyServices from "../NearbyServices/NearbyServices";
@@ -50,11 +51,17 @@ const AccordionData = [
 ];
 
 const Home = () => {
-  
-
   return (
     <>
-  
+      <CountdownCircleTimer
+        isPlaying
+        duration={7}
+        colors={["#004777", "#F7B801", "#A30000", "#A30000"]}
+        colorsTime={[7, 5, 2, 0]}
+      >
+        {({ remainingTime }) => remainingTime}
+      </CountdownCircleTimer>
+
       <WeatherData />
 
       <QuickCall />
@@ -64,7 +71,6 @@ const Home = () => {
       <Report />
 
       <Accordion />
-
     </>
   );
 };
