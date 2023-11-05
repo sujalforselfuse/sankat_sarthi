@@ -285,7 +285,7 @@ const Navbar = () => {
                       : "text-gray-900"
                   }`}
                 >
-                  WHY SARTHI?
+                  DONATE 
                 </a>
               </li>
             </ul>
