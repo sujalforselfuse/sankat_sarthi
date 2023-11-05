@@ -54,7 +54,7 @@ const Navbar = () => {
   return (
     <div className="px-3 sm:px-6 md:px-14 lg:px-12 xl:px-28 2xl:px-[10rem]">
       <nav className="">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-4 md:p-4">
+        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-4 md:p-4 border-b-2 border-black">
           <a href="/" className="flex items-center">
             {/* Logo */}
 
