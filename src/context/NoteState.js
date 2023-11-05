@@ -24,6 +24,7 @@ const NoteState = (props) => {
                 }
             });
             const json = await response.json();
+            console.log("User details are ",json);
             if (json.success) {
                 setLogin(true);
                 setName(json.user.name)

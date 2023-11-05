@@ -14,6 +14,8 @@ app.use('/api/chances', require('./routes/disaster_chances'));
 app.use('/api/details', require('./routes/emergency'));
 app.use('/api/markers', require('./routes/markers'));
 app.use('/api/sos', require('./routes/sos'));
+app.use('/api/report', require('./routes/report'));
+app.use('/api/payment', require('./routes/payment'));
 
 /*app.use('/api/cart', require('./routes/cart'));
 app.use('/api/payment', require('./routes/payment'));
