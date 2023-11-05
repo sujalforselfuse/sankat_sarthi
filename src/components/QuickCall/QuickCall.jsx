@@ -53,7 +53,7 @@ const QuickCall = () => {
           </div>
 
           <div>
-            <h5 className="mb-2 text-3xl font-bold tracking-tight text-[#007c7c]">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#007c7c]">
               Ambulance
             </h5>
 
@@ -79,7 +79,7 @@ const QuickCall = () => {
           {/* Contact Number and Name */}
 
           <div>
-            <h5 className="mb-2 text-3xl font-bold tracking-tight text-[#007c7c]">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#007c7c]">
               Control Room
             </h5>
 
@@ -103,7 +103,7 @@ const QuickCall = () => {
           </div>
 
           <div>
-            <h5 className="mb-2 text-3xl font-bold tracking-tight text-[#007c7c]">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight text-[#007c7c]">
               NDRF
             </h5>
 
