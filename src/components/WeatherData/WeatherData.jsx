@@ -104,7 +104,7 @@ const WeatherData = () => {
                         {/* City */}
 
                         <p className="font-normal capitalize text-xl text-gray-700">
-                            {city}
+                           Current Location - {city}
                         </p>
 
                     </div>

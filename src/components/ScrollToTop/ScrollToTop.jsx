@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { BiArrowFromBottom } from 'react-icons/bi'
-import useSOSModal from '../../Provider/UseSOSModal'
+import useSOSModal from '../../Utils/UseSOSModal'
 
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(true)
@@ -39,7 +39,7 @@ export const ScrollToTop = () => {
         <button
           type="button"
 
-          className='bg-red-600 hover:bg-red-800 inline-flex items-center rounded-full p-6 text-white shadow-sm transition-opacity focus:outline-none'
+          className='bg-red-600 hover:bg-red-800 inline-flex items-center rounded-full p-4 font-semibold text-white text-2xl shadow-sm transition-opacity focus:outline-none'
 
         >
           SOS

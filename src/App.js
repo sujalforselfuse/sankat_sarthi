@@ -12,6 +12,7 @@ import Hospitals_mark from './Pages/Maps/Hospitals';
 import Food_mark from './Pages/Maps/Food';
 function App() {
   return (
+    <>
     <NoteState>
       <div>
 
@@ -41,6 +42,7 @@ function App() {
 
       </div>
     </NoteState>
+    </>
   );
 }
 
