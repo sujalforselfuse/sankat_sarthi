@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { RegionDropdown } from 'react-country-region-selector';
+import { DotSpinner } from '@uiball/loaders'
 const Signup = () => {
 
     const [District, setDistrict] = useState([]);
@@ -93,7 +94,7 @@ const Signup = () => {
         e.preventDefault();
         setLoading(true);
 
-        const response = await fetch(`http://localhost:8000/api/auth/usersignup`, {
+        const response = await fetch(`https://sankat-backend.onrender.com/api/auth/usersignup`, {
             method: "POST",
 
             headers: {
@@ -263,7 +264,7 @@ const Signup = () => {
 
                             <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-5"></span>
 
-                            <span className="relative">Register &rarr;</span>
+                            <span className="relative"> {loading?<DotSpinner size={40} speed={0.9} color="black"/>:"Sign Up  &rarr;"}</span>
 
                         </button>
 

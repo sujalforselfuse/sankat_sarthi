@@ -14,7 +14,7 @@ const NoteState = (props) => {
                 return;
             }
 
-            const response = await fetch(`http://localhost:8000/api/auth/userinfo`, {
+            const response = await fetch(`https://sankat-backend.onrender.com/api/auth/userinfo`, {
                 method: "GET",
 
                 headers: {

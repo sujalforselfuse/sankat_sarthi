@@ -63,7 +63,7 @@ const Hospitals_mark = () => {
       }
 
       const response = await fetch(
-        `http://localhost:8000/api/markers/get_hospital/${localStorage.getItem(
+        `https://sankat-backend.onrender.com/api/markers/get_hospital/${localStorage.getItem(
           "city"
         )}`,
         {

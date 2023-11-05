@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import noteContext from "../../context/noteContext";
 import logo from "../../Images/sarthi_logo.png";
 import { useNavigate } from "react-router-dom";
@@ -91,7 +91,7 @@ const Navbar = () => {
   };
 
   const handlePayment = async (amount) => {
-    const response = await fetch(`http://localhost:8000/api/payment/orders`, {
+    const response = await fetch(`https://sankat-backend.onrender.com/api/payment/orders`, {
       method: "POST",
 
       headers: {
@@ -114,7 +114,7 @@ const Navbar = () => {
     <div className="px-3 sm:px-6 md:px-14 lg:px-12 xl:px-28 2xl:px-[10rem]">
       <nav className="">
         <div className="border-b-2 border-black flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-4 md:p-4">
-          <a href="/" className="flex items-center">
+          <Link to="/" className="flex items-center">
             {/* Logo */}
 
             <img src={logo} className="h-16 md:h-20" alt="Logo" />
@@ -130,13 +130,13 @@ const Navbar = () => {
                 Sarthi
               </span>
             </div>
-          </a>
+          </Link>
 
           <div className="flex items-center">
             {/* Login button */}
 
-            <a
-              href={"/login"}
+            <Link
+              to={"/login"}
               className="lg:px-6 px-3 py-1 2xl:py-2 relative rounded group 2xl:text-2xl text-lg font-medium text-black flex items-center justify-center"
             >
               <span className="absolute top-0 left-0 w-full h-full rounded opacity-50 filter blur-sm bg-gradient-to-br from-green-300 to-green-400"></span>
@@ -150,7 +150,7 @@ const Navbar = () => {
               <span className="relative capitalize">
                 {login ? "Hi " + name.split(" ")[0] : "Login"}
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -160,8 +160,8 @@ const Navbar = () => {
           <div className="flex items-center justify-center">
             <ul className="flex flex-row font-medium gap-x-2 md:gap-x-0 mt-0 md:mr-6 md:space-x-8 text-sm">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className={`nav-link ${
                     location.pathname === "/"
                       ? "text-green-500 before:w-full"
@@ -169,12 +169,12 @@ const Navbar = () => {
                   }`}
                 >
                   HOME
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="/works"
+                <Link
+                  to="/works"
                   className={`nav-link ${
                     location.pathname === "/works"
                       ? "text-green-500 before:w-full"
@@ -182,12 +182,12 @@ const Navbar = () => {
                   }`}
                 >
                   HOW IT WORKS
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="/services"
+                <Link
+                  to="/services"
                   className={`nav-link ${
                     location.pathname === "/services"
                       ? "text-green-500 before:w-full"
@@ -195,7 +195,7 @@ const Navbar = () => {
                   }`}
                 >
                   SERVICES
-                </a>
+                </Link>
               </li>
 
               <li>

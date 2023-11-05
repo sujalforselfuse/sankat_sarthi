@@ -12,7 +12,7 @@ const Report = () => {
     e.preventDefault();
 
     const response = await fetch(
-      `http://localhost:8000/api/report/add_report`,
+      `https://sankat-backend.onrender.com/api/report/add_report`,
       {
         method: "POST",
 

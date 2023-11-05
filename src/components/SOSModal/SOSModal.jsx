@@ -38,7 +38,7 @@ const SOSModal = () => {
         return;
       }
 
-      const response = await fetch(`http://localhost:8000/api/auth/userinfo`, {
+      const response = await fetch(`https://sankat-backend.onrender.com/api/auth/userinfo`, {
         method: "GET",
 
         headers: {
@@ -49,7 +49,7 @@ const SOSModal = () => {
       const json = await response.json();
       console.log("User details are ", json);
       if (json.success) {
-        const response = await fetch(`http://localhost:8000/api/sos/add_sos`, {
+        const response = await fetch(`https://sankat-backend.onrender.com/api/sos/add_sos`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

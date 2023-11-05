@@ -11,7 +11,7 @@ const QuickCall = () => {
       }
 
       const response = await fetch(
-        `http://localhost:8000/api/details/get_emergency/${localStorage.getItem(
+        `https://sankat-backend.onrender.com/api/details/get_emergency/${localStorage.getItem(
           "city"
         )}`,
         {

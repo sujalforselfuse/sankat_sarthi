@@ -63,7 +63,7 @@ const MultipleMarkersMap = () => {
       }
 
       const response = await fetch(
-        `http://localhost:8000/api/markers/get_shelter/${localStorage.getItem(
+        `https://sankat-backend.onrender.com/api/markers/get_shelter/${localStorage.getItem(
           "city"
         )}`,
         {

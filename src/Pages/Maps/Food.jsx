@@ -63,7 +63,7 @@ const Food_mark = () => {
       }
 
       const response = await fetch(
-        `http://localhost:8000/api/markers/get_food/${localStorage.getItem(
+        `https://sankat-backend.onrender.com/api/markers/get_food/${localStorage.getItem(
           "city"
         )}`,
         {
