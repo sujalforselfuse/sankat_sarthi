@@ -176,7 +176,7 @@ const Navbar = () => {
                 <a
                   href="/works"
                   className={`nav-link ${
-                    location.pathname === "#works"
+                    location.pathname === "/works"
                       ? "text-green-500 before:w-full"
                       : "text-gray-900"
                   }`}
@@ -187,9 +187,9 @@ const Navbar = () => {
 
               <li>
                 <a
-                  href=" "
+                  href="/services"
                   className={`nav-link ${
-                    location.pathname === "#services"
+                    location.pathname === "/services"
                       ? "text-green-500 before:w-full"
                       : "text-gray-900"
                   }`}
@@ -202,7 +202,7 @@ const Navbar = () => {
                 <button
                   onClick={() => handlePayment(100)}
                   className={`nav-link ${
-                    location.pathname === "#reasons"
+                    location.pathname === "/donate"
                       ? "text-green-500 before:w-full"
                       : "text-gray-900"
                   }`}

@@ -14,6 +14,7 @@ import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
 import Work from './Pages/HowWorks/Work';
 import Report from './Pages/Report/Report';
+import Services from './Pages/Services/Services';
 function App() {
   return (
     <>
@@ -43,6 +44,7 @@ function App() {
             <Route path="/food" element={<Food_mark />}></Route>
             <Route path="/works" element={<Work />}></Route>
             <Route path="/report" element={<Report />}></Route>
+            <Route path="/services" element={<Services />}></Route>
           </Routes>
 
           <Footer />
