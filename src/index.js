@@ -12,6 +12,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <SOSModal />
+      
       <App />
     </BrowserRouter>
   </React.StrictMode>
