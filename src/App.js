@@ -17,39 +17,40 @@ import Report from './Pages/Report/Report';
 function App() {
   return (
     <>
-    <NoteState>
-      <div>
+      <NoteState>
+        <div>
 
-        <ToastContainer
-          position="top-left"
-          autoClose={4000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss={false}
-          draggable
-          pauseOnHover={false}
-          theme="dark"
-        />
+          <ToastContainer
+            position="top-left"
+            autoClose={4000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss={false}
+            draggable
+            pauseOnHover={false}
+            theme="dark"
+          />
+          <Navbar></Navbar>
+          <Routes>
 
-        <Routes>
-          <Route path="/" element={<Layout />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<Signup />}></Route>
-          <Route path="/shelter" element={<Marker />}></Route>
-          <Route path="/hospital" element={<Hospitals_mark />}></Route>
-          <Route path="/food" element={<Food_mark />}></Route>
-          <Route path="/works" element={<Work />}></Route>
-          <Route path="/report" element={<Report />}></Route>
-        </Routes>
+            <Route path="/" element={<Layout />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/signup" element={<Signup />}></Route>
+            <Route path="/shelter" element={<Marker />}></Route>
+            <Route path="/hospital" element={<Hospitals_mark />}></Route>
+            <Route path="/food" element={<Food_mark />}></Route>
+            <Route path="/works" element={<Work />}></Route>
+            <Route path="/report" element={<Report />}></Route>
+          </Routes>
 
-        <Footer />
+          <Footer />
 
-        <ScrollToTop />
+          <ScrollToTop />
 
-      </div>
-    </NoteState>
+        </div>
+      </NoteState>
     </>
   );
 }

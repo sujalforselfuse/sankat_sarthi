@@ -42,7 +42,7 @@ const Report = () => {
                 Report Now
               </span>
               <span class="relative invisible">Report Now</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -3,13 +3,15 @@ import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import noteContext from "../../context/noteContext";
 import logo from "../../Images/sarthi_logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
 
   const { fetchData, name, login } = useContext(noteContext);
-  
+
   const sidebarRef = useRef(null);
+  const history=useNavigate();
 
   useEffect(() => {
     fetchData();
@@ -35,12 +37,10 @@ const Navbar = () => {
             );
             if (cityFeature) {
               const city = cityFeature.text;
-              localStorage.setItem('city',city.toLowerCase());
-              
+              localStorage.setItem("city", city.toLowerCase());
             } else {
               console.log("City not found");
             }
-            
           })
           .catch((error) => {
             console.error("Error converting coordinates to city", error);
@@ -51,10 +51,69 @@ const Navbar = () => {
     }
   }, []);
 
+  const handleOpenRazorpay = (data) => {
+    const options = {
+      key: "rzp_test_iCO3kPkwJRQi3L",
+      amount: Number(data.amount),
+      currency: data.currency,
+      order_id: data.id,
+      name: "Sankalp Sarthi",
+      description: "get all alerts",
+      handler: async function (response) {
+        try {
+          console.log("verifying");
+          const data = await fetch(
+            `https://mechback.onrender.com/api/payment/verify`,
+            {
+              method: "POST",
+
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ response }),
+            }
+          );
+          const json = await data.json();
+
+          if (json.success) {
+            
+          } else {
+            alert("fail");
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      },
+    };
+
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+  };
+
+  const handlePayment = async (amount) => {
+    const response = await fetch(`http://localhost:8000/api/payment/orders`, {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ amount }),
+    });
+    const json = await response.json();
+
+    if (json.success) {
+      alert("redirecting to payment page");
+
+      handleOpenRazorpay(json.data);
+    } else {
+      alert("fail");
+    }
+  };
+
   return (
     <div className="px-3 sm:px-6 md:px-14 lg:px-12 xl:px-28 2xl:px-[10rem]">
       <nav className="">
-        <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-4 md:p-4">
+        <div className="border-b-2 border-black flex flex-wrap justify-between items-center mx-auto max-w-screen-xl py-4 md:p-4">
           <a href="/" className="flex items-center">
             {/* Logo */}
 
@@ -70,7 +129,6 @@ const Navbar = () => {
               <span className="text-2xl md:text-3xl font-black whitespace-nowrap">
                 Sarthi
               </span>
-              
             </div>
           </a>
 
@@ -141,16 +199,16 @@ const Navbar = () => {
               </li>
 
               <li>
-                <a
-                  href=" "
+                <button
+                  onClick={() => handlePayment(100)}
                   className={`nav-link ${
                     location.pathname === "#reasons"
                       ? "text-green-500 before:w-full"
                       : "text-gray-900"
                   }`}
                 >
-                  DONATE 
-                </a>
+                  DONATE
+                </button>
               </li>
             </ul>
           </div>
