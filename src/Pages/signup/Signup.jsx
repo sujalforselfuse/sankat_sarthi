@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { RegionDropdown } from 'react-country-region-selector';
 const Signup = () => {
 
-    // const [selectedState, setSelectState] = useState("");
-    // const [selectedDistrict, setselectedDistrict] = useState("");
     const [District, setDistrict] = useState([]);
     const form = useRef();
     const [loading, setLoading] = useState(false);
