@@ -1,9 +1,57 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import AccordionItem from './AccordionItem';
+
+const AccordionData = [
+    {
+        id: 1,
+        question: "What is Sankat Sarthi?",
+        answer:
+            "Sankat Sarthi is a disaster management app designed to provide real-time alerts, guidance, and assistance during various emergencies. It aims to enhance community resilience by offering tools for risk assessment, emergency planning, and volunteer coordination.",
+    },
+
+    {
+        id: 2,
+        question: "How can 'Sankat Sarthi' help me during a disaster?",
+        answer:
+            "The app provides immediate access to emergency alerts, safety tips, and instructions for evacuation. It can guide you to the nearest shelter, help in signaling for rescue, and connect you with relief services.",
+    },
+
+    {
+        id: 3,
+        question: "How does 'Sankat Sarthi' ensure the accuracy of its alerts?",
+        answer:
+            " We source our information from reliable and official channels, including meteorological data, government advisories, and verified on-ground reports. Our team constantly monitors and updates the information to maintain accuracy.",
+    },
+
+    {
+        id: 4,
+        question: "What is Sankat Sarthi?",
+        answer:
+            "Sankat Sarthi is a disaster management app designed to provide real-time alerts, guidance, and assistance during various emergencies. It aims to enhance community resilience by offering tools for risk assessment, emergency planning, and volunteer coordination.",
+    },
+
+    {
+        id: 5,
+        question: "What is Sankat Sarthi?",
+        answer:
+            "Sankat Sarthi is a disaster management app designed to provide real-time alerts, guidance, and assistance during various emergencies. It aims to enhance community resilience by offering tools for risk assessment, emergency planning, and volunteer coordination.",
+    },
+
+    {
+        id: 6,
+        question: "What is Sankat Sarthi?",
+        answer:
+            "Sankat Sarthi is a disaster management app designed to provide real-time alerts, guidance, and assistance during various emergencies. It aims to enhance community resilience by offering tools for risk assessment, emergency planning, and volunteer coordination.",
+    },
+];
 
 const Accordion = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggleAccordion = () => {
-        setIsOpen(!isOpen);
+    const [openStates, setOpenStates] = useState([false, false, false]);
+
+    const toggleAccordion = (index) => {
+        const updatedOpenStates = [...openStates];
+        updatedOpenStates[index] = !updatedOpenStates[index];
+        setOpenStates(updatedOpenStates);
     };
     return (
         <>
@@ -11,95 +59,35 @@ const Accordion = () => {
 
             {/* Accordion box */}
 
-            <div>
+            <div className='flex lg:flex-row flex-col justify-between w-full items-center'>
 
-                <div className='group'>
+                {/* Image */}
 
-                    <h2>
-                        <button
-                            type="button"
-                            className={`flex items-center justify-between w-full p-5 font-medium text-left text-[#007c7c] border border-b-0 border-green-200 rounded-t-xl hover:bg-green-100 ${isOpen ? 'bg-green-100' : ''
-                                }`}
-                            onClick={toggleAccordion}
-                            aria-expanded={isOpen}
-                        >
-                            <span className="flex items-center">
-
-                                <svg
-                                    className={`w-5 h-5 mr-2 shrink-0 ${isOpen ? 'rotate-180' : ''}`}
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                        clipRule="evenodd"
-                                    ></path>
-                                </svg>
-
-                                What is Sankat Sarthi?
-
-                            </span>
-
-                        </button>
-
-                    </h2>
-
-                    <div
-                        className={`p-5 border border-b-0 border-green-200 hidden group-hover:inline-block`}
-                    >
-                        <p className="mb-2 text-green-500">
-                            Sankat Sarthi is a disaster management app designed to provide real-time alerts, guidance, and assistance during various emergencies. It aims to enhance community resilience by offering tools for risk assessment, emergency planning, and volunteer coordination.
-                        </p>
-
-                    </div>
-
+                <div className='w-1/2'>
+                    <img src="https://www.cowin.gov.in/assets/images/faq_Section.svg" alt="" />
                 </div>
 
-                <div className='group'>
-                    <h2>
-                        <button
-                            type="button"
-                            className={`flex items-center justify-between w-full p-5 font-medium text-left text-[#007c7c] border border-b-0 border-green-200 rounded-t-xl hover:bg-green-100 ${isOpen ? 'bg-green-100' : ''
-                                }`}
-                            onClick={toggleAccordion}
-                            aria-expanded={isOpen}
-                        >
-                            <span className="flex items-center">
+                {/* Accordions */}
 
-                                <svg
-                                    className={`w-5 h-5 mr-2 shrink-0 ${isOpen ? 'rotate-180' : ''}`}
-                                    fill="currentColor"
-                                    viewBox="0 0 20 20"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z"
-                                        clipRule="evenodd"
-                                    ></path>
-                                </svg>
+                <div className='w-1/2'>
 
-                                How can 'Sankat Sarthi' help me during a disaster?
+                    <h1 className="text-center text-[#007c7c] text-3xl font-semibold uppercase mb-10 lg:mt-0 mt-10 lg:text-left">
+                        Frequently Asked Questions
+                    </h1>
 
-                            </span>
+                    {AccordionData.map((data, index) => {
+                        return (
+                            <AccordionItem
+                                key={index}
+                                question={data.question}
+                                answer={data.answer}
+                                isOpen={openStates[index]}
+                                onToggle={() => toggleAccordion(index)}
+                            />
+                        )
+                    })}
 
-                        </button>
-
-                    </h2>
-
-                    <div
-                        className={`${isOpen ? 'block' : 'hidden'
-                            } p-5 border border-b-0 border-green-200`}
-                        aria-labelledby={`accordion-open-heading-2`}
-                    >
-                        <p className="mb-2 text-green-500">
-                            The app provides immediate access to emergency alerts, safety tips, and instructions for evacuation. It can guide you to the nearest shelter, help in signaling for rescue, and connect you with relief services.
-                        </p>
-                    </div>
                 </div>
-
 
 
             </div>
