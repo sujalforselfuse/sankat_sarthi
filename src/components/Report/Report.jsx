@@ -1,13 +1,14 @@
-import React from 'react'
-import {BiSolidReport} from 'react-icons/bi'
+import React from "react";
+import { BiSolidReport } from "react-icons/bi";
 import report from "../../Images/report.png";
+import { Link } from "react-router-dom";
 
 const Report = () => {
   return (
     <>
-    {/* Report Container */}
+      {/* Report Container */}
 
-    <div className="block w-full p-2 sm:p-6 border-2 bg-[#edffff] border-green-200 rounded-lg shadow hover:bg-gray-100">
+      <div className="block w-full p-2 sm:p-6 border-2 bg-[#edffff] border-green-200 rounded-lg shadow hover:bg-gray-100">
         <div className="flex md:flex-row flex-col gap-6 items-center gap-x-16">
           {/* Image */}
 
@@ -30,8 +31,8 @@ const Report = () => {
             </p>
 
             {/* Report Button */}
-            <a
-              href="#_"
+            <Link
+              to='/report'
               class="relative inline-flex items-center justify-center px-10 py-3 overflow-hidden font-medium text-white bg-[#007c7c] transition duration-300 ease-out border-2 rounded-full shadow-md group"
             >
               <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-[#007c7c] group-hover:translate-x-0 ease">
@@ -41,12 +42,12 @@ const Report = () => {
                 Report Now
               </span>
               <span class="relative invisible">Report Now</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Report
+export default Report;

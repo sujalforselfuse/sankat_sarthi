@@ -10,6 +10,8 @@ import NoteState from './context/NoteState';
 import Marker from './Pages/Maps/Marker';
 import Hospitals_mark from './Pages/Maps/Hospitals';
 import Food_mark from './Pages/Maps/Food';
+import SOSModal from './components/SOSModal/SOSModal';
+
 function App() {
   return (
     <>
@@ -28,7 +30,7 @@ function App() {
           pauseOnHover={false}
           theme="dark"
         />
-
+      
         <Routes>
           <Route path="/" element={<Layout />}></Route>
           <Route path="/login" element={<Login />}></Route>
