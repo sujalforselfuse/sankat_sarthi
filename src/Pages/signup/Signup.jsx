@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RegionDropdown } from 'react-country-region-selector';
 import { DotSpinner } from '@uiball/loaders'
+import { toast } from 'react-toastify';
 const Signup = () => {
 
     const [District, setDistrict] = useState([]);
@@ -110,11 +111,10 @@ const Signup = () => {
             setLoading(false);
             localStorage.setItem('token', json.authtoken);
             history('/');
-
         }
         else {
             setLoading(false);
-            alert("fail");
+            toast.error("Some Error Occured");
             /* props.showAlert("Invalid Credentials", "danger"); */
         }
     }
@@ -206,13 +206,6 @@ const Signup = () => {
                                     </option>
                                 ))}
                             </select>
-                            {/* <RegionDropdown
-                                country='India'
-                                value={state}
-                                defaultOptionLabel=" "
-                                onChange={(val) => setstate(val)}
-                                className="absolute top-[20px] focus:outline-none focus:ring-0 w-full"
-                            /> */}
 
                             <label htmlFor="state" className="peer-focus:font-medium absolute 2xl:text-[1.5rem] text-base text-black duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-black  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-2 peer-focus:scale-75 peer-focus:-translate-y-6">State</label>
 
@@ -264,12 +257,12 @@ const Signup = () => {
 
                             <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-5"></span>
 
-                            <span className="relative"> {loading?<DotSpinner size={40} speed={0.9} color="black"/>:"Sign Up  &rarr;"}</span>
+                            <span className="relative"> {loading?<DotSpinner size={40} speed={0.9} color="black"/>:"Sign Up"} &rarr;</span>
 
                         </button>
 
-                        <a href='/login' className="2xl:text-xl sm:text-lg text-lg text-green-900 text-center font-medium tracking-wide underline">SignIn
-                        </a>
+                        <Link to='/login' className="2xl:text-xl sm:text-lg text-lg text-green-900 text-center font-medium tracking-wide underline">SignIn
+                        </Link>
 
                     </div>
 

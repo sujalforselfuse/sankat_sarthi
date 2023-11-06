@@ -46,10 +46,6 @@ const Report = () => {
       setcity(e.target.value);
     } else if (e.target.name == "number") {
       setnumber(e.target.value);
-    } else if (e.target.name == "latitude") {
-      setlatitude(e.target.value);
-    } else if (e.target.name == "longitude") {
-      setlongitude(e.target.value);
     } else if (e.target.name == "landmark") {
       setlandmark(e.target.value);
     }
@@ -92,7 +88,7 @@ const Report = () => {
       >
         {/* Form Container */}
 
-        <div className="flex flex-col w-full h-full justify-start sm:p-14 px-4 py-8 gap-y-12">
+        <div className="flex flex-col w-full h-full justify-start sm:p-8 px-4 py-8 gap-y-12">
           {/* Input Fields */}
 
           <div className="grid sm:grid-cols-2 gap-6 2xl:gap-12">
@@ -164,7 +160,7 @@ const Report = () => {
 
             {/* Latitude */}
 
-            <div className="relative z-0 w-full group h-[53px]">
+            {/* <div className="relative z-0 w-full group h-[53px]">
               <input
                 type="text"
                 name="latitude"
@@ -174,6 +170,7 @@ const Report = () => {
                 className="block px-0 h-full w-full 2xl:text-[1.5rem] text-lg text-[#007c7c] bg-transparent border-0 border-b-2 border-green-200 appearance-none focus:outline-none focus:ring-0 focus:border-[#FFFFFF] peer"
                 placeholder=" "
                 required
+                readOnly
               />
 
               <label
@@ -182,11 +179,11 @@ const Report = () => {
               >
                 Latitude
               </label>
-            </div>
+            </div> */}
 
             {/* Longitude */}
 
-            <div className="relative z-0 w-full group h-[53px]">
+            {/* <div className="relative z-0 w-full group h-[53px]">
               <input
                 type="text"
                 name="longitude"
@@ -196,6 +193,7 @@ const Report = () => {
                 className="block px-0 h-full w-full text-lg 2xl:text-[1.5rem] text-[#007c7c] bg-transparent border-0 border-b-2 border-green-200 appearance-none focus:outline-none focus:ring-0 focus:border-[#FFFFFF] peer"
                 placeholder=" "
                 required
+                readOnly
               />
 
               <label
@@ -204,7 +202,7 @@ const Report = () => {
               >
                 Longitude
               </label>
-            </div>
+            </div> */}
 
             {/* landmark */}
 
@@ -225,6 +223,28 @@ const Report = () => {
                 className="peer-focus:font-medium absolute 2xl:text-[1.5rem] text-base text-[#007c7c] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FFFFFF]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               >
                 Landmark
+              </label>
+            </div>
+
+            {/* City */}
+
+            <div className="relative z-0 w-full group h-[53px]">
+              <input
+                type="text"
+                name="landmark"
+                id="landmark"
+                value={localStorage.getItem('city')}
+                onChange={handleChange}
+                className="block px-0 h-full w-full text-lg 2xl:text-[1.5rem] text-[#007c7c] bg-transparent border-0 border-b-2 border-green-200 appearance-none focus:outline-none focus:ring-0 focus:border-[#FFFFFF] peer"
+                placeholder=" "
+                required
+              />
+
+              <label
+                htmlFor="cname"
+                className="peer-focus:font-medium absolute 2xl:text-[1.5rem] text-base text-[#007c7c] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FFFFFF]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              >
+                Your Current City
               </label>
             </div>
           </div>

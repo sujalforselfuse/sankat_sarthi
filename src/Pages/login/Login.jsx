@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { RegionDropdown } from "react-country-region-selector";
+import { Link, useNavigate } from "react-router-dom";
+import { DotSpinner } from '@uiball/loaders'
+import { toast } from "react-toastify";
 const Login = () => {
   const form = useRef();
   const [email, setemail] = useState("");
@@ -36,12 +37,11 @@ const Login = () => {
     const json = await response.json();
     if (json.success) {
       setLoading(false);
-
       localStorage.setItem("token", json.authtoken);
       history("/");
     } else {
       setLoading(false);
-      alert("fail");
+      toast.error("Some Error Occured");
     }
   };
 
@@ -132,15 +132,15 @@ const Login = () => {
 
               <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-5"></span>
 
-              <span className="relative">Login &rarr;</span>
+              <span className="relative">{loading ? <DotSpinner size={40} speed={0.9} color="black"/> : 'Login'} &rarr;</span>
             </button>
 
-            <a
-              href="/signup"
+            <Link
+              to="/signup"
               className="2xl:text-xl sm:text-lg text-lg text-green-900 text-center font-medium tracking-wide underline"
             >
               Signup
-            </a>
+            </Link>
           </div>
         </div>
       </form>
