@@ -122,7 +122,10 @@ const MultipleMarkersMap = () => {
           accessToken: mapboxgl.accessToken,
           unit: "metric", // You can adjust units as needed
         });
-        map.addControl(directions, "top-left");
+
+        map.on("load", () => {
+          map.addControl(directions, "top-left");
+        });
 
         const markerCoordinates = json.shelters.markers;
 
@@ -142,6 +145,9 @@ const MultipleMarkersMap = () => {
                 type: "Point",
                 properties: { name: "Current Location" },
               };
+              map.on("load", () => {
+                directions.setOrigin(currentLocation);
+              });
 
               console.log("current", currentLocation);
 
@@ -152,8 +158,9 @@ const MultipleMarkersMap = () => {
               };
 
               // Set the origin (current location) and destination for navigation
-              directions.setOrigin(currentLocation);
-              directions.setDestination(destination);
+              map.on("load", () => {
+                directions.setDestination(destination);
+              });
             });
           });
 
